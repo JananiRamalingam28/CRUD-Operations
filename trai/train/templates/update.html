@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <script src="https://kit.fontawesome.com/c08eb42585.js " crossorigin="anonymous"></script>
+        {% load static %}
+        <style>
+            #h{
+            margin-left: 45%;
+            border:whitesmoke;
+            border-width: 10px;
+            border-radius: 10px;
+            border-style:inset;
+        }
+        #h1{
+            
+            border:whitesmoke;
+            border-width: 5px;
+            border-radius: 5px;
+            border-style:groove;
+        }
+        ::placeholder
+        {
+            color:black;
+        }
+
+        #h2{
+            margin-left: 36.5%;
+            color: whitesmoke;
+        }
+        </style>
+    </head>
+    <body style="background-color: skyblue;">
+
+        <form action="/updateData/{{data.id}}" method="POST" autocomplete="off">
+            {% csrf_token %}
+            <h1 style="color:whitesmoke;text-align:center;">REGISTRATION FORM</h1>
+        <img src="{% static 'contact.jpg' %}" width="80" height="80" id="h"><br><br><br>
+        <input type="text" placeholder="First Name" value="{{data.FN}}"name="FN"  style="margin-left: 39%; width:11%;" id="h1">
+        <input type="text" placeholder="Last Name" value="{{data.LN}}"name="LN"  id="h1"style="width:11%" ><br><br>
+
+        <i class="fa fa-user-o" id="h2"></i>
+        <input type="text" placeholder="User Name" value="{{data.user}}" name="user" style="margin-left: 1.5%; width: 21.9%;" id="h1"><br><br>
+
+        <i class="fa fa-envelope-o " style="font-size: 18px;" id="h2"></i>
+        <input type="text" placeholder="Email" value="{{data.email}}"name="email"  style="margin-left: 1.5%; width:21.9%" id="h1" ><br><br>
+
+        <i class="fa-solid fa-phone" id="h2"></i>
+        <input type="text" placeholder="Tel.Number" value="{{data.contact}}"name="contact" style="margin-left: 1.5%; width:21.9%" id="h1" ><br><br>
+
+        <i class="fa-solid fa-unlock" id="h2"></i>
+        <input type="text" placeholder="Password" value="{{data.password}}"name="password" style="margin-left: 1.5%; width:21.9%" id="h1" ><br><br>
+
+        <i class="fa-solid fa-lock" id="h2"></i>
+        <input type="text" placeholder="cpass"value="{{data.cpass}}"name="cpass" style="margin-left: 1.5%; width:21.9%" id="h1" ><br><br>
+
+        <input type="submit" value="Update" style="margin-left: 48%;font-size: 110%; " id="h1"> 
+        </form>
+    </body>
+</html>

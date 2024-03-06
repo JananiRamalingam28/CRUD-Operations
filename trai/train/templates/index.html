@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+<html>
+    <head>
+        {% csrf_token %}
+        {% block title %}
+        text
+       {% endblock %}
+       {% block table %}
+       <style>
+        table, th, td {
+  border: 2px black;
+  border-collapse: collapse;
+  margin-left: 15%;
+  border-style: groove;
+  border-radius: 5px;
+  background-color: whitesmoke;
+
+}
+       </style>
+    </head>
+    <body>
+      
+        {% if d %}
+        <table style=" width: 75%;">
+        <thead>
+            <tr >
+                <th>s.no</th>
+                <th>FN</th>
+                <th>LN</th>
+                <th>user</th>
+                <th>email</th>
+                <th>contact</th>
+                <th>password</th>
+                <th>cpass</th>
+            </tr>
+        </thead>
+        {% for data in d %}
+        <tbody>
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{data.FN}}</td>
+                <td>{{data.LN}}</td>
+                <td>{{data.user}}</td>
+                <td>{{data.email}}</td>
+                <td>{{data.contact}}</td>
+                <td>{{data.password}}</td>
+                <td>{{data.cpass}}</td>
+                <td><a href="updateData/{{data.id}}">update</a></td>
+                <td><a href="deleteData/{{data.id}}">delete</a></td>
+
+                
+            </tr>
+
+        </tbody>
+        {% endfor %}
+    </table>
+    {% endif %}
+        {% endblock %}
+    </body>
+</html>
